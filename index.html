@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Snuggle Shot - Baby Photo Art</title>
+    <meta name="description"
+        content="Create adorable baby photo art, track milestones, and auto-make collages & slideshows. Simple, safe, and made for busy parents." />
+
+    <!-- Google Fonts: cute, kid-friendly, rounded -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600;700&family=Nunito:wght@400;600;700;800&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div class="bg-blobs" aria-hidden="true"></div>
+
+    <!-- Bubbles background -->
+    <div class="bubbles" aria-hidden="true">
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+    </div>
+
+    <!-- Confetti canvas -->
+    <canvas id="confetti-canvas"></canvas>
+
+    <header>
+        <nav class="nav container">
+            <a class="brand" href="#">
+                <span class="brand-logo" aria-hidden="true">
+                    <!-- baby face icon -->
+                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                        <path
+                            d="M12 2a2 2 0 0 1 2 2v.09a8.5 8.5 0 1 1-4 0V4a2 2 0 0 1 2-2zm-2.2 9.2a1 1 0 1 0-1.6 1.2 3.5 3.5 0 0 0 5.6 0 1 1 0 1 0-1.6-1.2 1.5 1.5 0 0 1-2.4 0zM9 9.25a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm6 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2z" />
+                    </svg>
+                </span>
+                <span class="brand-name">Snuggle Shot</span>
+            </a>
+            <div style="display:flex; gap:6px; align-items:center;">
+                <a href="#features">Features</a>
+                <a href="#pricing">Pricing</a>
+                <a href="#faq">FAQ</a>
+                <button class="cta"
+                    onclick="document.getElementById('download').scrollIntoView({behavior:'smooth'}); triggerConfetti();">Get
+                    the
+                    App</button>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container">
+        <!-- Decorative baby elements -->
+        <div class="baby-rattle" style="top: 100px; left: 5%;"></div>
+        <div class="pacifier" style="top: 200px; right: 8%;"></div>
+        <div class="baby-rattle" style="top: 500px; right: 10%; transform: scale(0.7);"></div>
+        <div class="pacifier" style="top: 700px; left: 7%; transform: scale(0.8);"></div>
+
+        <!-- HERO -->
+        <section class="hero" id="home">
+            <div>
+                <h1>Adorable Baby Photo Art — <br />Automatically.</h1>
+                <p class="subtitle">Turn everyday snaps into cute collages, monthly milestones, and heart-melting
+                    slideshows — in seconds. Made for busy parents.</p>
+                <div class="checks">
+                    <div class="check"><span class="dot">✓</span> Smart picks of your best baby photos</div>
+                    <div class="check"><span class="dot">✓</span> Cute frames, stickers & milestone cards</div>
+                    <div class="check"><span class="dot">✓</span> Growth timelines & then‑vs‑now videos</div>
+                </div>
+                <div class="badges" id="download">
+                    <a class="badge" href="#" aria-label="Download on the App Store" onclick="triggerConfetti()">
+                        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                            <path
+                                d="M17 3c-1.2.1-2.6.9-3.4 2-.7 1-1.3 2.6-.9 4 .1 0 .3.1.3.1.9 0 2.1-.6 2.9-1.5.7-.8 1.1-1.8 1.1-2.7 0-.1 0-.3-.1-.4zM21.4 17.7c-.4.9-.6 1.3-1.1 2.1-.7 1.1-1.7 2.4-3 2.4-1.1 0-1.4-.7-3-.7s-2 .6-3.1.7c-1.3 0-2.3-1.2-3-2.3-1.7-2.5-3-7-1.2-10 1-1.7 2.7-2.7 4.6-2.8 1.1 0 2.2.8 3 .8.9 0 2-.9 3.4-.8 1.2.1 2.4.7 3.3 1.6-2.8 1.5-2.4 5.4.5 6.5-.3.8-.6 1.5-1 2.5z" />
+                        </svg>
+                        <span>App Store</span>
+                    </a>
+                    <a class="badge" href="#" aria-label="Get it on Google Play" onclick="triggerConfetti()">
+                        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                            <path
+                                d="M3.2 2.8c-.1.1-.2.3-.2.5v17.4c0 .2.1.4.2.5l9.6-9.2L3.2 2.8zM14 11.5l2.2-2.1-10-6c-.2-.1-.4-.1-.6 0l8.4 8.1zM14 12.5l-8.4 8.1c.2.1.4.1.6 0l10-6L14 12.5zm1.3-.9l3.9 2.3c.6.3.9.2.9-.4V10.5c0-.6-.3-.7-.9-.4l-3.9 2.3z" />
+                        </svg>
+                        <span>Google Play</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="hero-card" aria-label="App preview">
+                <div class="phone">
+                    <div class="status"></div>
+                    <div class="screen">
+                        <div class="mock">
+                            <h3>Monthly Milestones</h3>
+                            <p style="margin:0;color:#6a6a80">Auto‑made from your gallery. Share‑ready.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FEATURES -->
+        <section class="section features" id="features">
+            <div style="display:flex; align-items:center; gap:12px; margin-bottom: 14px;">
+                <span class="pill">✨ New: AI Smart Picks</span>
+                <span class="pill" style="background:#eef7ff;color:#0b4e9b">🔒 Private & Secure</span>
+            </div>
+            <div class="grid-3">
+                <article class="card">
+                    <h4>Auto Collages</h4>
+                    <p>Pick a theme and let the app build the cutest layouts with captions, stickers, and dates.</p>
+                </article>
+                <article class="card">
+                    <h4>Growth Timelines</h4>
+                    <p>See your baby blossom month by month with "Then vs Now" slideshows and time‑lapses.</p>
+                </article>
+                <article class="card">
+                    <h4>Calendar Journal</h4>
+                    <p>One tap to add a note or milestone to your monthly calendar — never miss a moment.</p>
+                </article>
+            </div>
+        </section>
+
+        <!-- GALLERY MOCKS -->
+        <section class="section">
+            <h2 style="font-family:'Baloo 2',cursive; margin:0 0 14px;">Made-for-sharing results</h2>
+            <p class="subtitle">Here's a peek at what you can create in seconds.</p>
+            <div class="gallery" aria-label="Gallery of example results">
+                <div class="shot"><span class="ribbon">1 Month</span></div>
+                <div class="shot"><span class="ribbon">First Smile</span></div>
+                <div class="shot"><span class="ribbon">Crawling</span></div>
+                <div class="shot"><span class="ribbon">First Steps</span></div>
+            </div>
+        </section>
+
+        <!-- TESTIMONIALS -->
+        <section class="section">
+            <div class="testimonials">
+                <div>
+                    <h2 style="font-family:'Baloo 2',cursive; margin:0 0 6px;">Loved by thousands of parents</h2>
+                    <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
+                    <p class="subtitle">"I blinked and got a whole year of adorable memories. The auto collages are
+                        magical."</p>
+                </div>
+                <div class="card">
+                    <h4>Why parents choose Snuggle Shot</h4>
+                    <ul style="margin:10px 0 0; padding-left:18px; color: var(--muted); line-height: 1.8;">
+                        <li>Zero design skills needed</li>
+                        <li>Kid‑safe, private by default</li>
+                        <li>Fast sharing with family & friends</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- PRICING -->
+        <section class="section" id="pricing">
+            <h2 style="font-family:'Baloo 2',cursive; margin:0 0 14px;">Simple, parent‑friendly pricing</h2>
+            <p class="subtitle">Start free. Upgrade anytime to unlock unlimited art & HD exports.</p>
+            <div class="pricing">
+                <div class="price-card">
+                    <h3>Free</h3>
+                    <p>Try the essentials</p>
+                    <p class="price">$0 <small>/ forever</small></p>
+                    <ul style="list-style: none; padding: 0; color: var(--muted); line-height: 1.8;">
+                        <li>• 5 collages / month</li>
+                        <li>• Basic frames & stickers</li>
+                        <li>• Standard export</li>
+                    </ul>
+                    <button class="cta" onclick="triggerConfetti()">Get Started</button>
+                </div>
+                <div class="price-card" style="border:3px solid var(--accent);">
+                    <h3>Snuggle Shot Plus</h3>
+                    <p>Unlimited cuteness</p>
+                    <p class="price">$4.99 <small>/ month</small></p>
+                    <ul style="list-style: none; padding: 0; color: var(--muted); line-height: 1.8;">
+                        <li>• Unlimited collages & art</li>
+                        <li>• All premium themes</li>
+                        <li>• HD exports & timelines</li>
+                    </ul>
+                    <button class="cta" onclick="triggerConfetti()">Start Free Trial</button>
+                </div>
+                <div class="price-card">
+                    <h3>Family</h3>
+                    <p>Best for 2+ kids</p>
+                    <p class="price">$29.99 <small>/ year</small></p>
+                    <ul style="list-style: none; padding: 0; color: var(--muted); line-height: 1.8;">
+                        <li>• All Plus features</li>
+                        <li>• 3 family profiles</li>
+                        <li>• Shared albums</li>
+                    </ul>
+                    <button class="cta" onclick="triggerConfetti()">Go Annual</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ -->
+        <section class="section" id="faq">
+            <h2 style="font-family:'Baloo 2',cursive; margin:0 0 14px;">Frequently Asked Questions</h2>
+            <div class="faq">
+                <details>
+                    <summary>Is my baby's data private?</summary>
+                    <p>Yes. Your photos stay on your device by default. If cloud backup is enabled, we use secure,
+                        encrypted storage.</p>
+                </details>
+                <details>
+                    <summary>Does it work without the internet?</summary>
+                    <p>Most creation features work offline. Online is only needed for backups and sharing.</p>
+                </details>
+                <details>
+                    <summary>Can I edit captions and stickers?</summary>
+                    <p>Absolutely! You can customize text, colors, and layouts before exporting.</p>
+                </details>
+                <details>
+                    <summary>Can I use it for multiple kids?</summary>
+                    <p>Yes. Create separate kid profiles and switch between them easily.</p>
+                </details>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container row">
+            <div style="display:flex; align-items:center; gap:10px;">
+                <span class="brand-logo" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                        <path d="M12 2a2 2 0 0 1 2 2v.09a8.5 8.5 0 1 1-4 0V4a2 2 0 0 1 2-2z" />
+                    </svg>
+                </span>
+                <strong>Snuggle Shot</strong>
+                <span aria-hidden="true">•</span>
+                <span>© <span id="y"></span> All rights reserved</span>
+            </div>
+
+            <form class="newsletter" onsubmit="event.preventDefault();
+        const v=this.querySelector('input').value.trim();
+        if(!v){alert('Please enter your email');return}
+        alert('Thanks! We\'ll let you know when the app is ready.');
+        triggerConfetti();
+      ">
+                <input type="email" placeholder="Your email for early access" aria-label="Email" />
+                <button type="submit">Notify Me</button>
+            </form>
+        </div>
+    </footer>
+    <script src="script.js"></script>
+</body>
+
+</html>
